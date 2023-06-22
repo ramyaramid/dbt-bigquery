@@ -1,7 +1,6 @@
-with final as
-(
-select 
-id as customer_id,
+with final as(
+select
+id as employee_id,
 company,
 last_name,
 first_name,
@@ -20,12 +19,11 @@ web_page,
 notes,
 attachments,
 current_timestamp() as inserstion_timestamp
-from 
-{{ref('stg_customer')}}
+from {{ ref('sg_employees')}}
 ),
 cte as
 (
-select *, row_number() over(partition by customer_id ) as rownumber
+select *, row_number() over(partition by employee_id ) as rownumber
 from final
 )
 select *

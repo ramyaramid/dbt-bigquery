@@ -33,5 +33,5 @@ p.attachments as  product_attachments,
 left join 
 {{ref('dim_product')}} p on fp.product_id=p.product_id
 
-),
+)
 select * from final
